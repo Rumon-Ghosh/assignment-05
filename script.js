@@ -25,9 +25,12 @@ const callHistory = [];
 
 // call button functionality
 document.getElementById("card-container").addEventListener('click', function (evn) {
-  const callButton = evn.target.closest(".call-btn")
+  const callButton = evn.target.closest(".call-btn");
+
   const buttonParent = callButton.parentElement;
+  console.log(buttonParent);
   const divParent = buttonParent.parentElement;
+  console.log(divParent);
 
   const totalCoin = getTextNumber('coin-count');
   const remainingCoin = totalCoin - 20;
@@ -72,4 +75,18 @@ document.getElementById("card-container").addEventListener('click', function (ev
 // clear history functionality
 document.getElementById("clear-btn").addEventListener('click', function () {
   document.getElementById('call-history-parent').innerText = "";
+})
+
+// copy button functionality
+document.getElementById('card-container').addEventListener('click', function (e) {
+  const copyButton = e.target.closest(".copy-btn");
+
+  const buttonParent = copyButton.parentElement;
+  const divParent = buttonParent.parentElement;
+  const number = divParent.children[1].children[0].innerText;
+  navigator.clipboard.writeText(number);
+  
+  const currentCopy = getTextNumber('copy-count');
+  const totalCopy = currentCopy + 1;
+  document.getElementById('copy-count').innerText = totalCopy;
 })
