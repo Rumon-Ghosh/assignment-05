@@ -13,13 +13,14 @@ function getTextNumber(id) {
 }
 
 // heart counted functionality
-document.getElementById("card-container").addEventListener('click', function (event) {
-  if (event.target.classList.contains('heart-icon')) {
+const heartIcons = document.getElementsByClassName("heart-icon");
+for (const icons of heartIcons) {
+  icons.addEventListener('click', function () {
     const heartCountNumber = getTextNumber('heart-count');
     const heartCountIncrease = heartCountNumber + 1
     document.getElementById('heart-count').innerText = heartCountIncrease;
- }
-})
+  })
+}
 
 const callHistory = [];
 
@@ -27,6 +28,7 @@ const callHistory = [];
 document.getElementById("card-container").addEventListener('click', function (evn) {
   const callButton = evn.target.closest(".call-btn");
 
+  if (callButton.classList.contains('call-btn')) {
   const buttonParent = callButton.parentElement;
   const divParent = buttonParent.parentElement;
 
@@ -68,6 +70,7 @@ document.getElementById("card-container").addEventListener('click', function (ev
     callHistoryParent.appendChild(newElement);
   }
   callHistory.pop();
+  }  
 })
 
 // clear history functionality
@@ -78,7 +81,7 @@ document.getElementById("clear-btn").addEventListener('click', function () {
 // copy button functionality
 document.getElementById('card-container').addEventListener('click', function (e) {
   const copyButton = e.target.closest(".copy-btn");
-
+  if (copyButton.classList.contains('copy-btn')) {
   const buttonParent = copyButton.parentElement;
   const divParent = buttonParent.parentElement;
   const number = divParent.children[1].children[0].innerText;
@@ -89,4 +92,5 @@ document.getElementById('card-container').addEventListener('click', function (e)
   const currentCopy = getTextNumber('copy-count');
   const totalCopy = currentCopy + 1;
   document.getElementById('copy-count').innerText = totalCopy;
+  }
 })
