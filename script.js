@@ -28,14 +28,12 @@ document.getElementById("card-container").addEventListener('click', function (ev
   const callButton = evn.target.closest(".call-btn");
 
   const buttonParent = callButton.parentElement;
-  console.log(buttonParent);
   const divParent = buttonParent.parentElement;
-  console.log(divParent);
 
   const totalCoin = getTextNumber('coin-count');
   const remainingCoin = totalCoin - 20;
   if (remainingCoin < 0) {
-    alert("You don't have much coin");
+    alert("❌ You don't have sufficient coin to make a call.");
     return;
   }
   document.getElementById('coin-count').innerText = remainingCoin;
@@ -86,6 +84,8 @@ document.getElementById('card-container').addEventListener('click', function (e)
   const number = divParent.children[1].children[0].innerText;
   navigator.clipboard.writeText(number);
   
+  alert(`Number has been copied ${number}`);
+
   const currentCopy = getTextNumber('copy-count');
   const totalCopy = currentCopy + 1;
   document.getElementById('copy-count').innerText = totalCopy;

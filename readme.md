@@ -106,7 +106,7 @@ This Section will have layout as figma
 
 ## Create Readme
 
-You have to create a `Readme.md` file. and write down following questions. Dont Try to copy paste from AI Tools. Just write what you know about these. If you don't know , then search , learn , understand and then write.
+You have to create a `Readme.md` file. and write down following questions. Don't Try to copy paste from AI Tools. Just write what you know about these. If you don't know , then search , learn , understand and then write.
 
 ### 6. Answer the following questions clearly:
 
