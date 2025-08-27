@@ -26,6 +26,7 @@ const callHistory = [];
 
 // call button functionality
 document.getElementById("card-container").addEventListener('click', function (evn) {
+  evn.stopPropagation();
   const callButton = evn.target.closest(".call-btn");
 
   if (callButton.classList.contains('call-btn')) {
