@@ -26,34 +26,36 @@ const callHistory = [];
 
 // call button functionality
 document.getElementById("card-container").addEventListener('click', function (evn) {
+  
   evn.stopPropagation();
+  
   const callButton = evn.target.closest(".call-btn");
-
+  if (!callButton) return;
   if (callButton.classList.contains('call-btn')) {
-  const buttonParent = callButton.parentElement;
-  const divParent = buttonParent.parentElement;
+    const buttonParent = callButton.parentElement;
+    const divParent = buttonParent.parentElement;
 
-  const totalCoin = getTextNumber('coin-count');
-  const remainingCoin = totalCoin - 20;
-  if (remainingCoin < 0) {
-    alert("❌ You don't have sufficient coin to make a call.");
-    return;
-  }
-  document.getElementById('coin-count').innerText = remainingCoin;
+    const totalCoin = getTextNumber('coin-count');
+    const remainingCoin = totalCoin - 20;
+    if (remainingCoin < 0) {
+      alert("❌ You don't have sufficient coin to make a call.");
+      return;
+    }
+    document.getElementById('coin-count').innerText = remainingCoin;
 
-  const serviceName = divParent.children[0].children[0].innerText;
+    const serviceName = divParent.children[0].children[0].innerText;
 
-  const serviceNumber = divParent.children[1].children[0].innerText;
+    const serviceNumber = divParent.children[1].children[0].innerText;
 
-  const currentTime = new Date().toLocaleTimeString();
+    const currentTime = new Date().toLocaleTimeString();
 
-  alert(`📞 Calling ${serviceName} ${serviceNumber}`);
+    alert(`📞 Calling ${serviceName} ${serviceNumber}`);
 
-  const callObj = {
-    name: serviceName,
-    number: serviceNumber,
-    date: currentTime
-  }
+    const callObj = {
+      name: serviceName,
+      number: serviceNumber,
+      date: currentTime
+    }
   callHistory.push(callObj);
   
   for (const call of callHistory) {
@@ -82,16 +84,17 @@ document.getElementById("clear-btn").addEventListener('click', function () {
 // copy button functionality
 document.getElementById('card-container').addEventListener('click', function (e) {
   const copyButton = e.target.closest(".copy-btn");
+  if (!copyButton) return;
   if (copyButton.classList.contains('copy-btn')) {
-  const buttonParent = copyButton.parentElement;
-  const divParent = buttonParent.parentElement;
-  const number = divParent.children[1].children[0].innerText;
-  navigator.clipboard.writeText(number);
-  
-  alert(`Number has been copied ${number}`);
+    const buttonParent = copyButton.parentElement;
+    const divParent = buttonParent.parentElement;
+    const number = divParent.children[1].children[0].innerText;
+    navigator.clipboard.writeText(number);
+    
+    alert(`Number has been copied ${number}`);
 
-  const currentCopy = getTextNumber('copy-count');
-  const totalCopy = currentCopy + 1;
-  document.getElementById('copy-count').innerText = totalCopy;
+    const currentCopy = getTextNumber('copy-count');
+    const totalCopy = currentCopy + 1;
+    document.getElementById('copy-count').innerText = totalCopy;
   }
 })

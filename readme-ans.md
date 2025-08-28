@@ -17,10 +17,10 @@ querySelectorAll(): Returns a static NodeList, which is also an array-like objec
 First i will create a element by document.createElement(). Then i will add content to the new Element by using innerText or innerHTML. Lastly select the parentElement of the document and insert the new Element by appendChild() or prepend() method.
 
 # Answer to the question no-3 :
-Event bubbling in JavaScript means where an event triggered on a child element propagates upward through its ancestors in the DOM. It allows parent elements to respond to events triggered by their child elements. When we triggered the targeted element by using eventListener event work in capture mode first and then select the targeted element the event move upward by Event bubbling. To prevent bubbling, JavaScript has methods like stopPropagation() and stopImmediatePropagation().
+Event bubbling in JavaScript means where an event triggered on a child element propagates upward through its ancestors in the DOM. It allows parent elements to respond to events triggered by their child elements. When we triggered the targeted element by using eventListener event work in capture mode first and then select the targeted element the event move upward by Event bubbling. To prevent Event-bubbling, JavaScript has methods like stopPropagation() and stopImmediatePropagation().
 
 # Answer to the question no-4 :
 Event Delegation is a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular target using the .target property of the event object.
 
 # Answer to the question no-5 :
-preventDefault() and stopPropagation() are different type of method in JavaScript. Generally PreventDefault() method is used with form to stop it's natural behavior of page reloading. On-the-other-hand stopPropagation() method is used to stop the Event-bubbling process which block the Event to bubble upward and stop to the targeted element.
+preventDefault() and stopPropagation() are different type of methods in JavaScript. Generally PreventDefault() method is used with form to stop it's natural behavior of page reloading. On-the-other-hand stopPropagation() method is used to stop the Event-bubbling process which block the Event to bubble upward. It's only response when event triggered to the targeted element.
